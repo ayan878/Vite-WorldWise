@@ -1,24 +1,72 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
+import { useEffect, useState } from "react";
+import { useCities } from "../contexts/CitiesContext";
+
 function Map() {
-  const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const { cities } = useCities();
+  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [searchParams] = useSearchParams();
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
+
+  useEffect(() => {
+    console.log(mapLat, mapLng); // Log mapLat and mapLng
+    if (mapLat !== null && mapLng !== null) {
+      setMapPosition([parseFloat(mapLat), parseFloat(mapLng)]); // Parse string values to floats
+    }
+  }, [mapLat, mapLng]);
 
   return (
-    <div className={styles.mapContainer} onClick={()=>{navigate("form")}}>
-      <h1>Map</h1>
-      <h1>{lat || lng ? `Position : ${ lat }, ${ lng })`:""}</h1>
-      <button
-        onClick={() => {
-          setSearchParams({ lat: 23, lng: 50 });
-        }}
+    <div className={styles.mapContainer}>
+      <MapContainer
+        className={styles.map}
+        center={mapPosition}
+        zoom={6}
+        scrollWheelZoom={true}
       >
-        Chang position
-      </button>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+        />
+        {cities.map((city) => (
+          <Marker
+            position={[city.position.lat, city.position.lng]}
+            key={city.id}
+          >
+            <Popup>
+              <span>{city.emoji}</span>
+              <span>{city.cityName}</span>
+            </Popup>
+          </Marker>
+        ))}
+        <ChangeCentre position={mapPosition} />
+        <DetectClick /> {/* Include DetectClick component here */}
+      </MapContainer>
     </div>
   );
+}
+
+function ChangeCentre({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+  useMapEvents({
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
+  return null;
 }
 
 export default Map;
