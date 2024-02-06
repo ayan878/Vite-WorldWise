@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -37,18 +25,6 @@
       "id": "98443197"
     },
     {
-      "id": "e0bc",
-      "cityName": "Retuerta del Bullaque",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2000-03-03T18:30:00.000Z",
-      "notes": "dgdg",
-      "position": {
-        "lat": "39.473663214791934",
-        "lng": "-4.215652855134689"
-      }
-    },
-    {
       "id": "654b",
       "cityName": "Sardoal",
       "country": "Portugal",
@@ -58,18 +34,6 @@
       "position": {
         "lat": "39.55779641703954",
         "lng": "-8.17482114854865"
-      }
-    },
-    {
-      "id": "2e3a",
-      "cityName": "Sant Julia de Loria",
-      "country": "Andorra",
-      "emoji": "🇦🇩",
-      "date": "2024-02-06T17:47:47.661Z",
-      "notes": "ljl",
-      "position": {
-        "lat": "42.44046815549274",
-        "lng": "1.5461862909367332"
       }
     },
     {
