@@ -49,18 +49,6 @@
       }
     },
     {
-      "id": "30bb",
-      "cityName": "Fada",
-      "country": "Chad",
-      "emoji": "🇹🇩",
-      "date": "2024-02-06T18:06:32.637Z",
-      "notes": "dt",
-      "position": {
-        "lat": "19.450557033418573",
-        "lng": "21.684663339003098"
-      }
-    },
-    {
       "id": "3589",
       "cityName": "Chail",
       "country": "India",
@@ -82,6 +70,30 @@
       "position": {
         "lat": "28.807307856175832",
         "lng": "82.54614925357731"
+      }
+    },
+    {
+      "id": "b3c6",
+      "cityName": "Pozorrubielos de la Mancha",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-02-08T06:08:37.775Z",
+      "notes": "bgb",
+      "position": {
+        "lat": "39.490878721197745",
+        "lng": "-2.0464050699100493"
+      }
+    },
+    {
+      "id": "e7ac",
+      "cityName": "Landete",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-02-08T06:10:15.792Z",
+      "notes": "asdca",
+      "position": {
+        "lat": "39.87948308417122",
+        "lng": "-1.4096480024555125"
       }
     }
   ]

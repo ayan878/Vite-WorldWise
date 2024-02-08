@@ -31,12 +31,14 @@ function reducer(state, action) {
         ...state,
         isLoading: false,
         cities: [...state.cities, action.payload],
+        currentCity: action.payload,
       };
     case "city/deleted":
       return {
         ...state,
         isLoading: false,
         cities: state.cities.filter((city) => city.id !== action.payload),
+        currentCity: {},
       };
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
@@ -46,7 +48,10 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   useEffect(() => {
     async function fetchCities() {
@@ -69,6 +74,7 @@ function CitiesProvider({ children }) {
   }, []);
 
   async function getCity(id) {
+    if (Number(id) === currentCity.id) return; //if we click to same city or current city api not going to load again
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}cities/${id}`);
@@ -127,9 +133,10 @@ function CitiesProvider({ children }) {
   return (
     <CitiesContext.Provider
       value={{
-        cities: state.cities,
-        isLoading: state.isLoading,
-        currentCity: state.currentCity,
+        cities,
+        isLoading,
+        currentCity,
+        error,
         getCity,
         createCity,
         deleteCity,
@@ -147,6 +154,5 @@ function useCities() {
   }
   return context;
 }
-
 
 export { CitiesProvider, useCities };
