@@ -49,18 +49,6 @@
       }
     },
     {
-      "id": "850a",
-      "cityName": "Saravan",
-      "country": "Iran (Islamic Republic of)",
-      "emoji": "🇮🇷",
-      "date": "2024-02-06T18:03:36.183Z",
-      "notes": "",
-      "position": {
-        "lat": "27.840558757093934",
-        "lng": "61.75136856819371"
-      }
-    },
-    {
       "id": "30bb",
       "cityName": "Fada",
       "country": "Chad",
@@ -70,6 +58,30 @@
       "position": {
         "lat": "19.450557033418573",
         "lng": "21.684663339003098"
+      }
+    },
+    {
+      "id": "3589",
+      "cityName": "Chail",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-02-08T06:04:01.863Z",
+      "notes": "fsfg",
+      "position": {
+        "lat": "25.348705748345402",
+        "lng": "81.51618074057905"
+      }
+    },
+    {
+      "id": "8a31",
+      "cityName": "Aathbiskot",
+      "country": "Nepal",
+      "emoji": "🇳🇵",
+      "date": "2024-02-08T06:04:13.845Z",
+      "notes": "dv",
+      "position": {
+        "lat": "28.807307856175832",
+        "lng": "82.54614925357731"
       }
     }
   ]
